@@ -14,6 +14,7 @@ export function ContactForm({ email }: { email: string }) {
     setMessage("Your email app will open with your message. Send it there to reach our team.");
   }
   return <form className="contact-form" onSubmit={contact}>
+    <div className="form-heading"><span className="eyebrow">LET’S GET YOU CONNECTED</span><h3>Tell us what you have in mind.</h3><p>App access, team inquiries, or a quick hello.</p></div>
     <div className="form-pair"><label>Your name<input name="name" autoComplete="name" placeholder="Juan dela Cruz" required maxLength={100} /></label><label>Email address<input name="email" type="email" autoComplete="email" placeholder="you@example.com" required maxLength={200} /></label></div>
     <label>Let’s talk about<select name="interest" defaultValue="App access"><option>App access</option><option>Flight school or team</option><option>Partnership</option><option>Product support</option></select></label>
     <label>Your message<textarea name="message" placeholder="Tell us how we can help…" rows={4} required maxLength={4000} /></label>
