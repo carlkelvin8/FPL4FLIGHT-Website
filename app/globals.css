@@ -519,3 +519,8 @@ summary::-webkit-details-marker { display: none; }
   .phone { width: 246px; }
   .hero-benefits { gap: 9px; }
 }
+
+.deletion-request { margin-top: 28px; max-width: 760px; }
+.deletion-request .button { margin-block: 6px 18px; }
+.deletion-request .legal-email { text-decoration: underline; overflow-wrap: anywhere; }
+.legal-switch { flex-wrap: wrap; }

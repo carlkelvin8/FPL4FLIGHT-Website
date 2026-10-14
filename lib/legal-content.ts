@@ -10,6 +10,40 @@ export interface LegalSection {
 // Keep the app policy date: adding a web route does not revise the policy.
 export const legalUpdated = "August 19, 2026";
 
+// October 14, 2026: account deletion instructions and the requested 30-day policy.
+// Support must enforce this retention window; the website does not delete data.
+export const deletionSections: LegalSection[] = [
+  {
+    id: "request", title: "Request deletion by email",
+    paragraphs: ["You can request deletion of your FPL4FLIGHT account and associated data without installing or signing in to the app."],
+    items: [
+      "Email contact.fpl4flight@gmail.com from the email address linked to your FPL4FLIGHT account, with the subject FPL4FLIGHT account deletion request.",
+      "State that you want your account and associated personal data deleted. Include your account email address so we can locate it.",
+      "If you no longer have access to that email address, contact the same support address and explain the situation. Our team will help verify account ownership before deleting data.",
+      "Never send your password, authentication codes, or payment card details. Our team may ask for non-sensitive information to verify ownership and will confirm when deletion is completed.",
+    ],
+  },
+  {
+    id: "in-app", title: "Delete your account in the app",
+    items: ["Open FPL4FLIGHT and sign in.", "Go to Settings > Account and scroll to the Danger Zone.", "Tap Delete Account, then confirm with Delete My Data."],
+    paragraphs: ["Account deletion is permanent. Export any forms or records you want to keep before proceeding. If deletion fails, use the email request option above."],
+  },
+  {
+    id: "deleted-data", title: "Data covered by your request",
+    introduction: "Your request covers your account and personal data associated with it, including:",
+    items: ["Sign-in account, email address, profile, and account preferences.", "Your aircraft records, flight planning data, form submissions, signatures, and pilot logbook records stored by FPL4FLIGHT.", "Your chat messages, shared locations, uploaded media, and other account-linked files.", "Device notification tokens and other account-linked app records."],
+    paragraphs: ["Our team handles account-linked files and any remaining associated data as part of the request. Deletion cannot remove copies other people have already downloaded or files you exported to your own device."],
+  },
+  {
+    id: "retention", title: "Retention after deletion",
+    paragraphs: ["Our retention policy allows residual backup copies and limited security records to remain for up to 30 days after account deletion, after which they are removed or anonymized. These copies are not used to reactivate your account.", "Records that must be retained to meet a legal obligation, including applicable financial records, may be kept longer. If this applies to your request, our team will explain the specific data, reason, and applicable retention period in its response."],
+  },
+  {
+    id: "local-data", title: "Files on your device and subscriptions",
+    paragraphs: ["Downloaded files, exported PDFs, and locally stored flight tracks may remain on your device. Clear FPL4FLIGHT’s app data or uninstall the app, and remove exported files separately if you want to delete those copies.", "If you have an active store subscription, review and cancel it separately through the store where you subscribed. Contact support if you need help with billing."],
+  },
+];
+
 export const privacySections: LegalSection[] = [
   {
     id: "information", title: "Information We Collect",
@@ -49,7 +83,7 @@ export const privacySections: LegalSection[] = [
   },
   {
     id: "contact", title: "Contact Us",
-    paragraphs: ["For privacy-related inquiries, contact our Data Protection Officer at privacy@fpl4flight.io."],
+    paragraphs: ["For privacy-related inquiries, contact our Data Protection Officer at contact.fpl4flight@gmail.com."],
   },
 ];
 
@@ -89,6 +123,6 @@ export const termsSections: LegalSection[] = [
   },
   {
     id: "contact", title: "Contact",
-    paragraphs: ["For questions about these Terms, contact us at support@fpl4flight.io."],
+    paragraphs: ["For questions about these Terms, contact us at contact.fpl4flight@gmail.com."],
   },
 ];
