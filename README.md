@@ -49,3 +49,9 @@ in-app deletion steps, with data coverage and a 30-day residual backup/security
 retention policy. Support must handle associated files and enforce retention;
 the website prepares an email and does not automatically delete data or expire
 backups. Legal retention exceptions must be explained to the requester.
+
+---
+
+## Built by
+
+Built by **[Carl Kelvin Manahan](https://web-portfolio-tau-rust.vercel.app)**, a freelance software engineer who builds MVPs for startup founders. Have a product idea? [Book a free 15-min call](https://cal.com/carl-manahan-7lixzv/15min).
