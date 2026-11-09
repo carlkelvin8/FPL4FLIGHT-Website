@@ -2,6 +2,7 @@
 
 import { useRef, useState, type KeyboardEvent } from "react";
 import { Icon } from "./icon";
+import styles from "./product-preview.module.css";
 
 const tabs = ["Forms", "Flights", "Logbook"] as const;
 type Tab = typeof tabs[number];
@@ -51,9 +52,9 @@ export function ProductPreview() {
     <span className="coordinate coordinate-bottom">DESIGNED FOR YOUR NEXT DEPARTURE</span>
     <div className="floating-note"><span className="note-icon"><Icon name="cloud" size={19} /></span><div><strong>Ready, even offline.</strong><small>Saved forms stay with you.</small></div></div>
     <div className="stage-glow" aria-hidden="true" />
-    <div className="phone">
-      <div className="phone-status"><span>09:41</span><span className="phone-island" /><span>▮▮▮ ▰</span></div>
-      <div className="phone-heading"><div><small>YOUR DIGITAL FLIGHT DECK</small><h3>{active}</h3></div><span className="avatar">PF</span></div>
+    <div className={styles.device}><span className={styles.volume} aria-hidden="true"/><span className={styles.power} aria-hidden="true"/><div className={styles.screen}>
+      <div className={styles.status} aria-hidden="true"><span>9:41</span><span className={styles.island}><i/></span><svg width="48" height="13" viewBox="0 0 48 13" fill="currentColor"><path d="M0 9h2v3H0zm4-3h2v6H4zm4-3h2v9H8zm4-3h2v12h-2z"/><path d="M18 4q6-6 12 0l-1.5 1.5q-4.5-4.5-9 0zm3 3q3-3 6 0l-1.5 1.5q-1.5-1.5-3 0zm3 2 1.5 1.5L24 12l-1.5-1.5z"/><rect x="34" y="2" width="12" height="9" rx="2" fill="none" stroke="currentColor" strokeWidth="1"/><rect x="36" y="4" width="8" height="5" rx="1"/><path d="M47 5h1v3h-1z"/></svg></div>
+      <div className="phone-heading"><div><small>YOUR DIGITAL FLIGHT DECK</small><p className={styles.appTitle}>{active}</p></div><span className="avatar">PF</span></div>
       <div className="phone-stats"><div><strong>{String(items.length).padStart(2, "0")}</strong><span>{active === "Forms" ? "Documents" : active === "Flights" ? "Planning items" : "Records"}</span></div><div><strong>{String(ready).padStart(2, "0")}</strong><span>{active === "Forms" ? "Completed" : "Ready"}</span></div><div><strong>{String(items.length - ready).padStart(2, "0")}</strong><span>In progress</span></div></div>
       <div className="preview-tabs" role="tablist" aria-label="Explore the app preview">{tabs.map((tab, index) => <button ref={(element) => { tabButtons.current[index] = element; }} key={tab} id={`tab-${tab}`} role="tab" type="button" tabIndex={active === tab ? 0 : -1} aria-selected={active === tab} aria-controls="preview-panel" onKeyDown={(event) => navigateTabs(event, index)} onClick={() => setActive(tab)}>{tab}</button>)}</div>
       <div id="preview-panel" role="tabpanel" aria-labelledby={`tab-${active}`} tabIndex={0} className="preview-panel">{items.map((item, index) => <div className="phone-card" key={`${active}-${item.title}`} style={{ "--card-delay": `${index * 85}ms` } as React.CSSProperties}>
@@ -61,8 +62,8 @@ export function ProductPreview() {
         <p>{item.detail}</p><div className="mini-progress"><span style={{ width: `${item.progress}%` }} /></div>
       </div>)}</div>
       <div className="phone-bottom" aria-hidden="true">{["forms", "plane", "book", "chat"].map((icon) => <span key={icon} className={icon === (active === "Forms" ? "forms" : active === "Flights" ? "plane" : "book") ? "preview-nav-active" : ""}><Icon name={icon} size={21} /></span>)}</div>
-      <div className="phone-home" />
-    </div>
+      <div className="phone-home" aria-hidden="true" />
+    </div></div>
     <div className="floating-ready"><span className="ready-check"><Icon name="check" size={18} /></span><div><small>ONE APP. YOUR WORKFLOW.</small><strong>From preparation to records.</strong></div></div>
     <span className="preview-disclaimer">Interactive illustration · Try the tabs above</span>
   </div>;

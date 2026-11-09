@@ -34,12 +34,18 @@ project directory. No mobile app code or Supabase credentials are required.
   hosting environment. The default is `contact.fpl4flight@gmail.com`.
 
 The contact form prepares an email in the visitor's email application; it does
-not send messages or store submissions. The phone preview is illustrative.
+not send messages or store submissions. After validation, a copyable draft is also
+shown for visitors without a configured email app. If clipboard access is blocked,
+the draft is selected for manual copying. Editing the form clears the prepared
+draft so visitors can prepare an updated version. The phone preview is illustrative.
 Legal content mirrors the mobile app's August 19, 2026 policies. Privacy inquiries
 use `privacy@fpl4flight.io`. Confirm public contact addresses before deployment.
 
 Animations respect reduced-motion preferences and pause the hero when offscreen
 or when the browser tab is hidden. Fonts use Google Fonts with system fallbacks.
+Product chapters use sequential desktop transitions with reading holds and a
+scroll progress underline. Mobile uses unpinned reveals; the workflow section
+scrolls naturally on all screen sizes. Reduced motion keeps the full sequence visible.
 
 ## Account deletion
 

@@ -1,0 +1,125 @@
+.list {
+  border-top: 1px solid var(--line);
+  align-self: start;
+  min-width: 0;
+}
+
+.list .item {
+  padding-inline: 0;
+  border-top: 0;
+  border-bottom: 1px solid var(--line);
+  transition: background-color 240ms ease;
+}
+
+.list .item[open] {
+  background: transparent;
+}
+
+.list summary {
+  min-height: 72px;
+  padding: 19px 0;
+  gap: 14px;
+  align-items: center;
+  line-height: 1.5;
+}
+
+.list summary:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 5px;
+  border-radius: 3px;
+}
+
+.number {
+  color: #696279;
+  font-size: 9px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .08em;
+  width: 17px;
+  flex-shrink: 0;
+}
+
+.question {
+  flex: 1;
+  min-width: 0;
+  font-weight: 500;
+}
+
+.toggle {
+  width: 26px;
+  height: 26px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--purple);
+  transition: background-color 220ms ease, transform 300ms ease;
+}
+
+.toggle span {
+  width: 10px;
+  height: 1px;
+  position: absolute;
+  left: 8px;
+  top: 13px;
+  background: currentColor;
+  transition: transform 280ms ease;
+}
+
+.toggle span:last-child {
+  transform: rotate(90deg);
+}
+
+.item[open] .toggle {
+  background: #efecff;
+  transform: rotate(180deg);
+}
+
+.item[open] .toggle span:last-child {
+  transform: rotate(0deg);
+}
+
+.list .answer p {
+  padding: 0 40px 24px 31px;
+  margin: 0;
+  line-height: 1.8;
+  animation: none;
+}
+
+/* Unsupported browsers keep fully functional native disclosure behavior. */
+@supports (interpolate-size: allow-keywords) {
+  .item {
+    interpolate-size: allow-keywords;
+  }
+
+  .item::details-content {
+    block-size: 0;
+    overflow: clip;
+    opacity: 0;
+    transition: block-size 340ms cubic-bezier(.2, .7, .2, 1), opacity 240ms ease, content-visibility 340ms allow-discrete;
+  }
+
+  .item[open]::details-content {
+    block-size: auto;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 560px) {
+  .list summary {
+    padding: 18px 0;
+    min-height: 68px;
+    gap: 10px;
+  }
+
+  .list .answer p {
+    padding: 0 14px 22px 27px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item::details-content,
+  .toggle,
+  .toggle span {
+    transition: none;
+  }
+}

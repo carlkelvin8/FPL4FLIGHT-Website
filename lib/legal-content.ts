@@ -52,7 +52,7 @@ export const privacySections: LegalSection[] = [
   },
   {
     id: "location", title: "Location Data",
-    paragraphs: ["The Map uses foreground location to display your position. Live Track can collect location in the background only after you start a tracking session and grant permission; track points are stored locally on your device. A location is sent to the chat service only when you explicitly choose Share Location."],
+    paragraphs: ["The Map uses foreground location to display your position while you use the app. FPL4FLIGHT does not record your flight path or collect location in the background. A location is sent to the chat service only when you explicitly choose Share Location."],
   },
   {
     id: "use", title: "How We Use Your Information",
